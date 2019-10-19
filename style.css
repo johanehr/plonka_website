@@ -1,0 +1,277 @@
+body {
+  margin: 0;
+}
+
+h1, h2 {
+  clear: both;
+}
+
+h1 {
+  color: DarkSlateGray;
+  text-align: center;
+  font: 1.5em arial, sans-serif;
+  font-weight: bold;
+}
+
+h2 {
+  color: DarkSlateGray;
+  text-align: center;
+  font: 1.3em arial, sans-serif;
+}
+
+pre {
+  overflow-x: auto;
+}
+
+header {
+  margin-top: 0;
+  margin-bottom: 0em;
+  padding-top: 0;
+  background-color: #ccffff;
+  border-bottom: 0.1em groove white;
+}
+
+header > nav {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: column;
+  padding-bottom: 1em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+header > nav > a  {
+  color: DarkSlateGray;
+  font: 1em arial, sans-serif;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  text-decoration: none;
+  cursor: grab;
+}
+
+header > nav > a:link { /*unvisited */
+
+}
+
+header > nav > a:visited {
+
+}
+
+header > nav > a:active { /* When being clicked */
+  font-weight: bold;
+}
+
+header > nav > a:hover {
+  text-decoration: underline;
+}
+
+p {
+  color: DarkSlateGray;
+  font: 1em arial, sans-serif;
+}
+
+ul {
+  list-style: square;
+}
+
+ol{
+}
+
+#page {
+  outline: 0.1em groove white;
+  background-color: white;
+  padding: 0 0;
+}
+
+
+article {
+  padding: 1.0em;
+  margin: 0em;
+}
+
+figure {
+  margin: 1em 0;
+}
+
+figcaption {
+  text-align: center;
+  color: DarkSlateGray;
+  font: 1em arial, sans-serif;
+  font-style: italic;
+}
+
+img {
+  border: 0.3em solid black;
+  min-height: 10em;
+  max-width: 100%; /* Make sure image never becomes too big */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+fieldset {
+  width: 100%;
+  padding: 1em;
+}
+
+fieldset > textarea {
+  width: 100%;
+}
+
+textarea, input, select {
+  border: 0.1em solid DarkSlateGray;
+  border-radius: 0.5em;
+  margin: 0.2em;
+  padding: 0.2em;
+}
+
+textarea {
+  resize: none;
+}
+
+textarea:focus, input:focus, select:focus {
+  background-color: orange;
+}
+
+table {
+  table-layout: fixed;
+  width: 100%;
+  padding: 1em;
+}
+
+th {
+  text-align: center;
+  font-size: 1.3em;
+}
+
+td {
+  text-align: center;
+}
+
+footer {
+  clear: both;
+  background-color: WhiteSmoke;
+  border: 0.25em inset;
+  padding: 0.5em;
+  margin: 0.5em;
+  width: 90%; /* Never expand to more than 90% of container width */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+video {
+  width: 100%;
+}
+
+.fancy_button {
+  background-color: WhiteSmoke;
+  border: 0.1em solid black;
+  border-radius: 1em;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0.5em;
+}
+
+.fancy_button > a {
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  font-weight: bold;
+  font-family: sans-serif;
+  font-size: 1.2em;
+}
+
+.fancy_button:hover {
+  background-color: orange;
+}
+
+#column_count {
+  column-count: 1;
+  column-width: auto;
+}
+
+
+/*
+Modify when using non-mobile devices: tablets and desktop using recommended
+break point values from https://www.w3schools.com/css/css_rwd_mediaqueries.asp
+Note that a large screen is also first passed through the medium part.
+*/
+@media only screen and (min-width: 768px) {
+
+  aside {
+    background-color: #ccffff;
+    border: 1px solid gray;
+    border-radius: 0.5em;
+    padding: 1em;
+  }
+
+  header > nav {
+    flex-direction: row;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  table {
+    table-layout: fixed;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid gray;
+    border-radius: 1em;
+    padding: 1em;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+
+  #column_count {
+    column-count: 2;
+    column-width: auto;
+  }
+
+}
+
+@media only print {
+  body {
+    background: white;
+    padding: 0;
+    font-size: 12pt;
+  }
+
+  #page {
+    outline: none;
+  }
+
+  article {
+    border-style: none;
+    page-break-inside: avoid; /* Try to keep each article on its own page */
+  }
+
+  img {
+    filter: grayscale(100%); /* Just following the instructions, shouldn't the user decide this? */
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Hide all interactive or otherwise non-suitable elements when printing */
+  footer, nav, video, .fancy_button {
+    display: none !important;
+  }
+
+  h1, h2, p, a, figcaption {
+    color: black;
+  }
+
+  h1, h2 {
+    font-size: 16pt;
+  }
+
+  a, p {
+    font-size: 12pt;
+  }
+}
