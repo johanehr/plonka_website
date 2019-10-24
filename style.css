@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  background-color: #333333; /* same as footer bottom gradient color */
 }
 
 h1, h2 {
@@ -15,8 +16,13 @@ h1 {
 
 h2 {
   color: DarkSlateGray;
-  text-align: center;
+  text-align: left;
   font: 1.3em arial, sans-serif;
+}
+
+p, a {
+  color: DarkSlateGray;
+  font: 1em arial, sans-serif;
 }
 
 pre {
@@ -25,10 +31,9 @@ pre {
 
 header {
   margin-top: 0;
-  margin-bottom: 0em;
   padding-top: 0;
-  background-color: #ccffff;
-  border-bottom: 0.1em groove white;
+  background-color: orange;
+  box-shadow:0 1em 2em 1em grey;
 }
 
 header > nav {
@@ -68,28 +73,40 @@ header > nav > a:hover {
   text-decoration: underline;
 }
 
-p {
-  color: DarkSlateGray;
-  font: 1em arial, sans-serif;
+footer {
+  width: 100%;
+  background-color: #444444;
+  background-image: linear-gradient(#444444, #333333);
 }
 
-ul {
-  list-style: square;
+footer a, footer p, footer h2 {
+  color: #BBBBBB;
 }
 
-ol{
+.footer_wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  flex-direction: column;
+  padding: 0em 0em;
 }
 
-#page {
-  outline: 0.1em groove white;
-  background-color: white;
-  padding: 0 0;
+footer div  {
+  flex: 10;
+  padding: 1em;
+  align-self: stretch;
 }
 
+#footer_contact * {
+  text-align: center;
+}
 
-article {
-  padding: 1.0em;
-  margin: 0em;
+#footer_center {
+  display: none;
+}
+
+#footer_additional * {
+  text-align: center;
 }
 
 figure {
@@ -105,7 +122,6 @@ figcaption {
 
 img {
   border: 0.3em solid black;
-  min-height: 10em;
   max-width: 100%; /* Make sure image never becomes too big */
   display: block;
   margin-left: auto;
@@ -151,17 +167,6 @@ td {
   text-align: center;
 }
 
-footer {
-  clear: both;
-  background-color: WhiteSmoke;
-  border: 0.25em inset;
-  padding: 0.5em;
-  margin: 0.5em;
-  width: 90%; /* Never expand to more than 90% of container width */
-  margin-left: auto;
-  margin-right: auto;
-}
-
 video {
   width: 100%;
 }
@@ -202,6 +207,35 @@ Note that a large screen is also first passed through the medium part.
 */
 @media only screen and (min-width: 768px) {
 
+  .footer_wrapper {
+    align-items: flex-start;
+    flex-direction: row;
+    padding: 0em 0em; /* 3em to adjust spacing, instead of varying flex property*/
+  }
+
+  footer div  {
+    flex: 10;
+    padding: 1em;
+    align-self: stretch;
+  }
+
+  #footer_contact * {
+    text-align: right;
+  }
+
+  #footer_center {
+    display: block;
+    background-image: url("https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/Formal_Seal_of_Stockholm_University%2C_Stockholm%2C_Sverige.svg/1200px-Formal_Seal_of_Stockholm_University%2C_Stockholm%2C_Sverige.svg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 70%;
+    flex: 6; /* Adjusts size of image + position of text around center image */
+  }
+
+  #footer_additional * {
+    text-align: left;
+  }
+
   aside {
     background-color: #ccffff;
     border: 1px solid gray;
@@ -228,10 +262,22 @@ Note that a large screen is also first passed through the medium part.
 
 @media only screen and (min-width: 992px) {
 
+  footer div  {
+    flex: 10;
+  }
+
+
+  #footer_center {
+    background-size: 60%;
+    flex: 5; /* Adjusts size of image + position of text around center image */
+  }
+
   #column_count {
     column-count: 2;
     column-width: auto;
   }
+
+
 
 }
 
