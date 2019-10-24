@@ -3,6 +3,11 @@ body {
   background-color: #333333; /* same as footer bottom gradient color */
 }
 
+.content {
+  background-color: white;
+  padding: 2em;
+}
+
 h1, h2 {
   clear: both;
 }
@@ -30,47 +35,168 @@ pre {
 }
 
 header {
+
   margin-top: 0;
   padding-top: 0;
-  background-color: orange;
-  box-shadow:0 1em 2em 1em grey;
+  box-shadow: 0 0 1em 0 black; /* offset-x | offset-y | blur-radius | color */
+  position: relative;
 }
 
-header > nav {
+.topnav {
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  background-color: #333333;
+
   display: flex;
-  flex-wrap: wrap;
-  align-items: flex-start;
-  flex-direction: column;
-  padding-bottom: 1em;
-  width: 80%;
-  margin-left: auto;
-  margin-right: auto;
+  flex-wrap: nowrap;
+  align-content: flex-end;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: 0em 0em;
 }
 
-header > nav > a  {
-  color: DarkSlateGray;
-  font: 1em arial, sans-serif;
+.topnav .menu_logo {
+  align-self: stretch;
+
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
   text-align: center;
-  flex: 1;
+}
+
+.menu_logo img {
+  margin: 0.5em 4vw;
+  border: none;
+  height: 3em;
+}
+
+.menu_logo p {
+  color: WhiteSmoke;
+  font: 1.5em arial, sans-serif;
+  font-weight: bold;
+}
+
+.topnav .menu_link_container {
+  align-self: stretch;
+
+  display: none; /* Hide on mobile, use flex on desktop */
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: flex-end;
+  justify-content: flex-end;
+
+}
+
+.menu_link {
+  padding: 1em;
+
+/* Align text vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.menu_link a {
+  color: WhiteSmoke;
+  font: 1em arial, sans-serif;
+  text-align: center;
   text-decoration: none;
   cursor: grab;
 }
 
-header > nav > a:link { /*unvisited */
-
+.menu_button {
+  /* Align text vertically */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
-header > nav > a:visited {
+.menu_button .fancy_button {
+  background-color: WhiteSmoke;
+  border: 0.1em solid orange;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  margin: 0.3em 2vw 0.3em 1em;
 
+  transition: 0.20s;
+  -webkit-transition: 0.20s;
+  -moz-transition: 0.20s;
+  -ms-transition: 0.20s;
+  -o-transition: 0.20s;
 }
 
-header > nav > a:active { /* When being clicked */
+.fancy_button a {
+  display: block;
+  color: black;
+  text-align: center;
+  text-decoration: none;
   font-weight: bold;
+  font-family: sans-serif;
+  font-size: 1em;
 }
 
-header > nav > a:hover {
-  text-decoration: underline;
+.fancy_button:hover {
+  background-color: orange;
+
+  -webkit-transition: 0.20s;
+  -moz-transition: 0.20s;
+  -ms-transition: 0.20s;
+  -o-transition: 0.20s;
+  -webkit-transform: rotate(5deg);
+  -moz-transform: rotate(5deg);
+  -o-transform: rotate(5deg);
+  -ms-transform: rotate(5deg);
+  transform: rotate(5deg);
+}
+
+.topnav .menu_expand {
+  align-self: stretch;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.menu_expand .material-icons {
+  margin-right: 4vw;
+  font-size: 2em;
+  color: WhiteSmoke;
+}
+
+#mobile_menu {
+  background-color: orange;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+
+  /* For expanding/collapsing animation */
+  overflow-y: auto;
+  overflow-x: hidden;
+  max-height: 0;
+  -webkit-transition: max-height 0.3s ease-out;
+  -moz-transition: max-height 0.3s ease-out;
+  -ms-transition: max-height 0.3s ease-out;
+  -o-transition: max-height 0.3s ease-out;
+  transition: max-height 0.3s ease-out;
+}
+
+.mobile_menu_link {
+  width: 100%;
+  margin: 0;
+  padding: 1em;
+}
+
+.mobile_menu_link a {
+  font-size: 1em;
+  color: black;
+  text-align: right;
+  text-decoration: none;
 }
 
 footer {
@@ -81,6 +207,8 @@ footer {
 
 footer a, footer p, footer h2 {
   color: #BBBBBB;
+  margin-block-start: 0.6em;
+  margin-block-end: 0.6em;
 }
 
 .footer_wrapper {
@@ -121,7 +249,7 @@ figcaption {
 }
 
 img {
-  border: 0.3em solid black;
+  border: 0.1em solid black;
   max-width: 100%; /* Make sure image never becomes too big */
   display: block;
   margin-left: auto;
@@ -171,28 +299,7 @@ video {
   width: 100%;
 }
 
-.fancy_button {
-  background-color: WhiteSmoke;
-  border: 0.1em solid black;
-  border-radius: 1em;
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0.5em;
-}
 
-.fancy_button > a {
-  display: block;
-  color: black;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  font-family: sans-serif;
-  font-size: 1.2em;
-}
-
-.fancy_button:hover {
-  background-color: orange;
-}
 
 #column_count {
   column-count: 1;
@@ -206,6 +313,26 @@ break point values from https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 Note that a large screen is also first passed through the medium part.
 */
 @media only screen and (min-width: 768px) {
+
+  .menu_expand .material-icons {
+    margin-right: 2vw;
+  }
+
+  .menu_logo img {
+    margin: 0.5em 2vw;
+  }
+
+  .menu_logo p {
+    font-size: 1em;
+  }
+
+  .topnav .menu_link_container {
+    display: flex;
+  }
+
+  .topnav .menu_expand {
+    display: none;
+  }
 
   .footer_wrapper {
     align-items: flex-start;
@@ -305,7 +432,7 @@ Note that a large screen is also first passed through the medium part.
   }
 
   /* Hide all interactive or otherwise non-suitable elements when printing */
-  footer, nav, video, .fancy_button {
+  footer, nav, video, .menu_button {
     display: none !important;
   }
 
