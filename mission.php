@@ -2,8 +2,7 @@
   header('Content-type: text/html');
 
   // Replace placeholders with actual header/footer, due to code separation requirements
-  require 'header.php'; // $header
-  require 'footer.php'; // $footer
+  require 'snippet_generator.php'; // $header, $footer
   $html = file_get_contents("mission_template.html");
   $html = str_replace('---INSERT_HEADER_HERE---', $header, $html);
   $html = str_replace('---INSERT_FOOTER_HERE---', $footer, $html);
