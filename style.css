@@ -367,6 +367,14 @@ video {
   text-shadow: none;
 }
 
+article {
+  background-color: WhiteSmoke;
+  font-family: 'Nunito', sans-serif;
+  color: #333333;
+
+  padding: 2em;
+}
+
 
 
 /*
