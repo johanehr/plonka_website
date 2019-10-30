@@ -1,3 +1,8 @@
+/* Include non-standard fonts */
+@import url('https://fonts.googleapis.com/css?family=Nunito&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Staatliches&display=swap'); /* Not used */
+@import url('https://fonts.googleapis.com/css?family=Crete+Round&display=swap');
+
 body {
   margin: 0;
   background-color: #333333; /* same as footer bottom gradient color */
@@ -15,19 +20,19 @@ h1, h2 {
 h1 {
   color: DarkSlateGray;
   text-align: center;
-  font: 1.5em arial, sans-serif;
+  font: 1.5em 'Nunito', sans-serif;
   font-weight: bold;
 }
 
 h2 {
   color: DarkSlateGray;
   text-align: left;
-  font: 1.3em arial, sans-serif;
+  font: 1.3em 'Nunito', sans-serif;
 }
 
 p, a {
   color: DarkSlateGray;
-  font: 1em arial, sans-serif;
+  font: 1em arial, 'Nunito', sans-serif;
 }
 
 pre {
@@ -74,7 +79,7 @@ header {
 
 .menu_logo p {
   color: WhiteSmoke;
-  font: 1.5em arial, sans-serif;
+  font: 1.5em 'Nunito', sans-serif;
   font-weight: bold;
 }
 
@@ -101,7 +106,7 @@ header {
 
 .menu_link a {
   color: WhiteSmoke;
-  font: 1em arial, sans-serif;
+  font: 1em 'Nunito', sans-serif;
   text-align: center;
   text-decoration: none;
   cursor: grab;
@@ -117,8 +122,8 @@ header {
 
 .menu_button .fancy_button {
   background-color: WhiteSmoke;
-  border: 0.1em solid orange;
-  border-radius: 0.5em;
+  border: 0.1em solid black;
+  border-radius: 0.3em;
   padding: 0.5em;
   margin: 0.3em 2vw 0.3em 1em;
 
@@ -135,7 +140,7 @@ header {
   text-align: center;
   text-decoration: none;
   font-weight: bold;
-  font-family: sans-serif;
+  font-family: 'Nunito', sans-serif;
   font-size: 1em;
 }
 
@@ -169,7 +174,7 @@ header {
 }
 
 #mobile_menu {
-  background-color: orange;
+  background-color: WhiteSmoke;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -190,6 +195,12 @@ header {
   width: 100%;
   margin: 0;
   padding: 1em;
+
+  transition: background-color 0.25s ease-in-out;
+}
+
+.mobile_menu_link:hover{
+  background-color: orange;
 }
 
 .mobile_menu_link a {
@@ -214,15 +225,18 @@ footer a, footer p, footer h2 {
 .footer_wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: flex-start;
+  align-items: center; /* flex-start */
   flex-direction: column;
   padding: 0em 0em;
+
+  border-top: 0.1em solid WhiteSmoke;
 }
 
-footer div  {
+.footer_wrapper div {
   flex: 10;
   padding: 1em;
   align-self: stretch;
+
 }
 
 #footer_contact * {
@@ -244,7 +258,7 @@ figure {
 figcaption {
   text-align: center;
   color: DarkSlateGray;
-  font: 1em arial, sans-serif;
+  font: 1em 'Nunito', sans-serif;
   font-style: italic;
 }
 
@@ -299,12 +313,60 @@ video {
   width: 100%;
 }
 
+.hero {
+  margin: 0;
+  padding: 3em;
 
+  display: block;
+  background-image: url("media/img/female_dog_litter_3.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 
-#column_count {
-  column-count: 1;
-  column-width: auto;
+  text-shadow: 0 0 1.5em #333333;
 }
+
+.hero h1 {
+  font-size: 2.5em;
+  font-family: 'Crete Round', serif;
+  color: WhiteSmoke;
+}
+
+.hero p {
+  font-size: 1.5em;
+  font-family: 'Nunito', sans-serif;
+  color: WhiteSmoke;
+  text-align: center;
+}
+
+.hero_button {
+  background-color: WhiteSmoke;
+  padding: 0.5em;
+  border-radius: 0.3em;
+  border: 0.1em solid #333333;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  float: right;
+
+  box-shadow: 0 0 1.0em #333333;
+  transition: all 0.25s ease-in-out;
+}
+
+.hero_button:hover {
+  background-color: orange;
+  transform: scale(1.1);
+}
+
+.hero_button a {
+  font-size: 1.5em;
+  color: #333333;
+  font-family: 'Nunito', sans-serif;
+  font-weight: bold;
+  text-decoration: none;
+  text-shadow: none;
+}
+
 
 
 /*
@@ -384,6 +446,14 @@ Note that a large screen is also first passed through the medium part.
     border: 1px solid gray;
     border-radius: 1em;
     padding: 1em;
+  }
+
+  .hero {
+    padding: 15vw;
+  }
+
+  .hero_button {
+    float: right;
   }
 }
 
