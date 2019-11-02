@@ -15,6 +15,8 @@ body {
 
 h1, h2 {
   clear: both;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
 }
 
 h1 {
@@ -31,8 +33,10 @@ h2 {
 }
 
 p, a {
-  color: DarkSlateGray;
-  font: 1em arial, 'Nunito', sans-serif;
+  color: #333333;
+  font: 1em 'Nunito', sans-serif;
+  margin-block-start: 0.4em;
+  margin-block-end: 0.4em;
 }
 
 pre {
@@ -106,7 +110,6 @@ header {
 
 .menu_link a {
   color: WhiteSmoke;
-  font: 1em 'Nunito', sans-serif;
   text-align: center;
   text-decoration: none;
   cursor: grab;
@@ -262,36 +265,58 @@ figcaption {
   font-style: italic;
 }
 
+
 img {
-  border: 0.1em solid black;
   max-width: 100%; /* Make sure image never becomes too big */
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-fieldset {
+form {
   width: 100%;
-  padding: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
-fieldset > textarea {
-  width: 100%;
-}
-
-textarea, input, select {
-  border: 0.1em solid DarkSlateGray;
+form > button {
+  border: 0.1em solid #444444;
+  background-color: white;
   border-radius: 0.5em;
-  margin: 0.2em;
-  padding: 0.2em;
+  margin: 0.5em;
+  padding: 0.5em;
+  transition: background-color 0.25s ease-in-out;
+  width: 4em;
 }
 
-textarea {
+form button:hover {
+  background-color: orange;
+}
+
+form > textarea, form > input, form > select {
+  border: 0.1em solid #444444;
+  border-radius: 0.5em;
+  margin: 0.5em;
+  padding: 0.5em;
+
+  flex-grow: 1;
+
+  font-size: 1.0em;
+  font-family: 'Nunito', sans-serif;
+}
+
+form > textarea:focus, form > input:focus, form > select:focus {
+  background-color: orange;
+}
+
+form > textarea {
   resize: none;
 }
 
-textarea:focus, input:focus, select:focus {
-  background-color: orange;
+#email_input {
+  width: 10em;
 }
 
 table {
@@ -315,15 +340,26 @@ video {
 
 .hero {
   margin: 0;
-  padding: 3em;
+  padding: 4em 3em;
 
   display: block;
-  background-image: url("media/img/female_dog_litter_3.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
 
   text-shadow: 0 0 1.5em #333333;
+}
+
+#hero_home {
+  background-image: url("media/img/female_dog_litter_3.jpg");
+}
+
+#hero_sponsor {
+  background-image: url("media/img/autumn_path.jpg");
+}
+
+#hero_mission {
+  background-image: url("media/img/male_dog_trashcan.jpg");
 }
 
 .hero h1 {
@@ -347,7 +383,6 @@ video {
   margin-left: auto;
   margin-right: auto;
   text-align: center;
-  float: right;
 
   box-shadow: 0 0 1.0em #333333;
   transition: all 0.25s ease-in-out;
@@ -371,11 +406,68 @@ article {
   background-color: WhiteSmoke;
   font-family: 'Nunito', sans-serif;
   color: #333333;
-
   padding: 2em;
 }
 
+.user_stories {
+  display: flex;
+  flex-direction: column;
+}
 
+.user_story {
+  margin: 0;
+  padding: 1em;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.user_stories .user_story:not(:last-child) {
+  border-bottom: 0.1em solid orange;
+}
+
+.user_img img {
+  width: 80%;
+  border-radius: 50%;
+  align-self: center;
+  border: 0.1em solid #333333;
+}
+
+.user_text {
+  font-family: 'Nunito', sans-serif;
+  padding: 0;
+}
+
+.user_text h2 {
+  font-size: 1.5em;
+  font-weight: bold;
+  text-align: center;
+  color: orange;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+}
+
+.user_text h3 {
+  text-align: center;
+  font-size: 1em;
+  font-style: italic;
+  color: #444444;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+}
+
+.user_text p {
+  text-align: center;
+  font-size: 1em;
+  color: #333333;
+  margin-block-start: 0.3em;
+  margin-block-end: 0.3em;
+}
+
+.steps_container {
+  display: flex;
+  flex-direction: column;
+}
 
 /*
 Modify when using non-mobile devices: tablets and desktop using recommended
@@ -383,6 +475,10 @@ break point values from https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 Note that a large screen is also first passed through the medium part.
 */
 @media only screen and (min-width: 768px) {
+
+  article {
+    padding: 3em 3em;
+  }
 
   .menu_expand .material-icons {
     margin-right: 2vw;
@@ -410,7 +506,7 @@ Note that a large screen is also first passed through the medium part.
     padding: 0em 0em; /* 3em to adjust spacing, instead of varying flex property*/
   }
 
-  footer div  {
+  footer div {
     flex: 10;
     padding: 1em;
     align-self: stretch;
@@ -433,13 +529,6 @@ Note that a large screen is also first passed through the medium part.
     text-align: left;
   }
 
-  aside {
-    background-color: #ccffff;
-    border: 1px solid gray;
-    border-radius: 0.5em;
-    padding: 1em;
-  }
-
   header > nav {
     flex-direction: row;
     margin-bottom: 1em;
@@ -457,32 +546,88 @@ Note that a large screen is also first passed through the medium part.
   }
 
   .hero {
-    padding: 15vw;
+    padding: 15vw 10vw;
+    min-height: 20vw;
   }
 
   .hero_button {
     float: right;
   }
+
+  .user_stories {
+    flex-direction: row;
+  }
+
+  .user_stories .user_story:not(:last-child) {
+    border-bottom: none;
+  }
+
+  .user_story {
+    flex: 1;
+  }
+
+  .steps_container {
+    flex-direction: row;
+  }
+
+  .step {
+    flex: 1;
+    margin: 0.8em;
+    padding: 1.2em;
+    border-radius: 1em;
+    background-color: #dddddd;
+  }
+
+  .text_columns {
+    column-count: 2;
+    column-width: auto;
+  }
+
+  .tilted_img {
+    background-color: WhiteSmoke;
+  }
+
+  .tilted_img img {
+    width: 40%;
+    display: block;
+    box-shadow: 0 0.3em 0.3em rgba(0,0,0,0.2);
+    border: 1em solid white;
+    transform: rotate(-3deg);
+  }
+
+  form {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .narrow_on_desktop {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
 }
 
 @media only screen and (min-width: 992px) {
 
+  article {
+    padding: 4em 8em;
+  }
+
   footer div  {
     flex: 10;
   }
-
 
   #footer_center {
     background-size: 60%;
     flex: 5; /* Adjusts size of image + position of text around center image */
   }
 
-  #column_count {
+  .text_columns {
     column-count: 2;
     column-width: auto;
   }
-
-
 
 }
 
