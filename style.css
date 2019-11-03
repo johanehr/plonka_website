@@ -15,8 +15,10 @@ body {
 
 h1, h2 {
   clear: both;
+/*
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
+*/
 }
 
 h1 {
@@ -35,8 +37,10 @@ h2 {
 p, a {
   color: #333333;
   font: 1em 'Nunito', sans-serif;
+/*
   margin-block-start: 0.4em;
   margin-block-end: 0.4em;
+*/
 }
 
 pre {
@@ -221,14 +225,17 @@ footer {
 
 footer a, footer p, footer h2 {
   color: #BBBBBB;
+/*
   margin-block-start: 0.6em;
   margin-block-end: 0.6em;
+*/
+  text-decoration: none;
 }
 
 .footer_wrapper {
   display: flex;
   flex-wrap: wrap;
-  align-items: center; /* flex-start */
+  align-items: center;
   flex-direction: column;
   padding: 0em 0em;
 
@@ -275,43 +282,44 @@ img {
 
 form {
   width: 100%;
+}
+
+.form_row {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
 }
 
-form > button {
+form button {
   border: 0.1em solid #444444;
   background-color: white;
   border-radius: 0.5em;
   margin: 0.5em;
   padding: 0.5em;
   transition: background-color 0.25s ease-in-out;
-  width: 4em;
+  font: 1.0em 'Nunito', sans-serif;
 }
 
 form button:hover {
   background-color: orange;
 }
 
-form > textarea, form > input, form > select {
+form textarea, form input, form select {
   border: 0.1em solid #444444;
   border-radius: 0.5em;
   margin: 0.5em;
   padding: 0.5em;
-
   flex-grow: 1;
-
   font-size: 1.0em;
   font-family: 'Nunito', sans-serif;
 }
 
-form > textarea:focus, form > input:focus, form > select:focus {
+form textarea:focus, form input:focus, form select:focus {
   background-color: orange;
 }
 
-form > textarea {
+form textarea {
   resize: none;
 }
 
@@ -443,8 +451,10 @@ article {
   font-weight: bold;
   text-align: center;
   color: orange;
+/*
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
+*/
 }
 
 .user_text h3 {
@@ -452,16 +462,20 @@ article {
   font-size: 1em;
   font-style: italic;
   color: #444444;
+/*
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
+*/
 }
 
 .user_text p {
   text-align: center;
   font-size: 1em;
   color: #333333;
+/*
   margin-block-start: 0.3em;
   margin-block-end: 0.3em;
+*/
 }
 
 .steps_container {

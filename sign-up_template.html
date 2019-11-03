@@ -21,10 +21,53 @@
 
 ---INSERT_HEADER_HERE---
 
-      <div id="content">
-        <article>
-        </article>
-      </div>
+      <article>
+        <div class="narrow_on_desktop">
+          <h1>Ready to join Plonka?</h1>
+          <p>
+            We're honored! Unfortunately, Plonka is currently just a web design project made for
+            a university course. The goal is to also create a basic Android app to create a somewhat
+            functional MVP to show off how this service could actually work.
+            Very little time has been put into the legalities and viability of operating a business with this
+            economic model.
+          </p>
+          <p>
+            However, if you want to try the MVP app out,
+            feel free to register a minimal "de-activated" account which will allow you to log onto the MVP app.
+            Note that you won't be able to actually make any money through the app with such an account!
+            We may also use your email address and/or phone number to reach out if actually do launch commercially.
+          </p>
+        </div>
+
+        <form method="post" enctype="multipart/form-data" action="sign-up_save_user.php">
+          <div class="form_row">
+            Full name: <input title="Only capitalized names A-Z separated by spaces." type="text" name="name" placeholder="John Smith-Carlsson" required pattern="^[A-Z][a-z-]+([ ][A-Z][a-z-]+)+$">
+          </div>
+          <div class="form_row">
+            Email: <input id="email_input" type="email" name="email" placeholder="john.smith@fake.com" required>
+          </div>
+          <div class="form_row">
+            Mobile: <input type="tel" name="phone" placeholder="+467xxxxxxxx" pattern="^(\+467|07)[0-9]{8}$" required>
+          </div>
+          <div class="form_row">
+            Enter password: <input type="password" name="psw1" pattern="^.{8,}$" title="8+ characters" required>
+          </div>
+          <div class="form_row">
+            Confirm password: <input type="password" name="psw2" pattern="^.{8,}$" title="8+ characters" required>
+          </div>
+          <div class="form_row">
+            Birth date: <input type="date" name="birthday" required>
+          </div>
+
+          <input type="checkbox" name="conditions" value="accept" required> I have read and accept the <a href="https://www.google.com">Terms and Conditions</a> and <a href="https://www.google.com">Privacy Policy</a>.<br>
+
+          <div class="form_row">
+            <button type="submit" name="form_submission">
+              Complete registration
+            </button>
+          </div>
+        </form>
+      </article>
 
 ---INSERT_FOOTER_HERE---
 
