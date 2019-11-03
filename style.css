@@ -280,6 +280,14 @@ img {
   margin-right: auto;
 }
 
+.tilted_img {
+  background-color: WhiteSmoke;
+}
+
+.tilted_img img {
+  width: 100%; 
+}
+
 form {
   width: 100%;
 }
@@ -561,7 +569,6 @@ Note that a large screen is also first passed through the medium part.
 
   .hero {
     padding: 15vw 10vw;
-    min-height: 20vw;
   }
 
   .hero_button {
@@ -595,10 +602,6 @@ Note that a large screen is also first passed through the medium part.
   .text_columns {
     column-count: 2;
     column-width: auto;
-  }
-
-  .tilted_img {
-    background-color: WhiteSmoke;
   }
 
   .tilted_img img {
