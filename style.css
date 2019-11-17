@@ -285,7 +285,7 @@ img {
 }
 
 .tilted_img img {
-  width: 100%; 
+  width: 100%;
 }
 
 form {
@@ -600,6 +600,7 @@ Note that a large screen is also first passed through the medium part.
   }
 
   .text_columns {
+    padding: 0; 
     column-count: 2;
     column-width: auto;
   }

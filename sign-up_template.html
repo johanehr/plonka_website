@@ -56,10 +56,10 @@
             Confirm password: <input type="password" name="psw2" pattern="^.{8,}$" title="8+ characters" required>
           </div>
           <div class="form_row">
-            Birth date: <input type="date" name="birthday" required>
+            Personal number: <input type="number" name="personal_number" min="190000000000" max="202000000000" pattern="^\d{10}$" title="YYYYMMDDNNNN" required>
           </div>
 
-          <input type="checkbox" name="conditions" value="accept" required> I have read and accept the <a href="https://www.google.com">Terms and Conditions</a> and <a href="https://www.google.com">Privacy Policy</a>.<br>
+          <input type="checkbox" name="conditions" value="accept" required> I have read and accept the <a href="https://www.google.com">Terms & Conditions</a> and <a href="https://www.google.com">Privacy Policy</a>.<br>
 
           <div class="form_row">
             <button type="submit" name="form_submission">

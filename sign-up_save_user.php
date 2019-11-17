@@ -1,8 +1,8 @@
 <?php
   header('Content-type: text/plain');
-  require 'database_credentials.php'; // Provides $db_host,$db_usr,$db_pw,$db_name
+  require 'scripts/get_database_credentials.php'; // Provides $db_host,$db_usr,$db_pw,$db_name
 
-  if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['psw1']) && isset($_POST['psw2'])  && isset($_POST['birthday'])  && isset($_POST['conditions'])){
+  if (isset($_POST['name']) && isset($_POST['email']) && isset($_POST['phone']) && isset($_POST['psw1']) && isset($_POST['psw2'])  && isset($_POST['personal_number'])  && isset($_POST['conditions'])){
     $registration_status = 0;  // 0 = all good, OK to register
 
     // Gather all post data
@@ -11,7 +11,7 @@
     $phone = $_POST['phone'];
     $password = $_POST['psw1'];
     $password_verify = $_POST['psw2'];
-    $birthday = $_POST['birthday'];
+    $personal_number = $_POST['personal_number'];
     $conditions = $_POST['conditions'];
     $timestamp_registration = date('Y-m-d');
 
@@ -26,7 +26,7 @@
     }
 
     // Verify age above 18 years old
-    $birthday_DateTime=DateTime::createFromFormat('Y-m-d', $birthday);
+    $birthday_DateTime=DateTime::createFromFormat('Ymd', substr($personal_number, 0, -4));
     $ageLimit_DateTime=new DateTime('-18 years');
     if($birthday_DateTime > $ageLimit_DateTime){
       $registration_status = 3;
@@ -38,12 +38,12 @@
         $name = strip_tags($name);
         $email = strip_tags($email);
         $phone = strip_tags($phone);
-        $birthday = strip_tags($birthday);
+        $personal_number = strip_tags($personal_number);
         $password_hashed = password_hash($password, PASSWORD_BCRYPT);
 
         // Connect to database
         echo 'Attempting to connect to database...'.PHP_EOL;
-        $con=mysqli_connect($db_host,$db_usr,$db_pw,$db_name); // Read from non-public file in database_credentials.php
+        $con=mysqli_connect($db_host,$db_usr,$db_pw,$db_name); // Read from non-public file in get_database_credentials.php
         if (mysqli_connect_errno($con)) {
           echo 'Failed to connect to database'.PHP_EOL;
         }
@@ -51,8 +51,8 @@
           echo 'Successfully connected to database'.PHP_EOL;
 
           // Use a prepared statement to protect against SQL injections
-          $stmt = $con->prepare("INSERT INTO plonka_users (name, email, phone, birthday, pw_hashed, registration_date) VALUES (?, ?, ?, ?, ?, ?)");
-          $stmt->bind_param("ssssss", $name, $email, $phone, $birthday, $password_hashed, $timestamp_registration);
+          $stmt = $con->prepare("INSERT INTO plonka_users (name, email, phone, personal_number, pw_hashed, registration_date) VALUES (?, ?, ?, ?, ?, ?)");
+          $stmt->bind_param("ssssss", $name, $email, $phone, $personal_number, $password_hashed, $timestamp_registration);
           if($stmt->execute()){
             echo 'Registration successful! You can now log in through the app.'.PHP_EOL;
           }
@@ -67,7 +67,7 @@
         echo 'Error! Please make sure that your passwords match.'.PHP_EOL;
         break;
       case 2:
-        echo 'Error! Please accept the Terms and Conditions.'.PHP_EOL;
+        echo 'Error! Please accept the Terms & Conditions.'.PHP_EOL;
         break;
       case 3:
         echo 'Error! You need to be at least 18 years old to sign up.'.PHP_EOL;

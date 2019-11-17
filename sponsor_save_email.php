@@ -6,7 +6,7 @@
     // Gather all post data
     $email = $_POST["email"];
     $timestamp = date("Y-m-d_His");
-    $log_file = fopen("non-public/swish_emails.txt", 'a');     // Append values to file
+    $log_file = fopen('scripts/non-public/swish_emails.txt', 'a');     // Append values to file
     while(!flock($log_file, LOCK_EX)) {
       // acquire an exclusive lock, wait for file to become available
     }
